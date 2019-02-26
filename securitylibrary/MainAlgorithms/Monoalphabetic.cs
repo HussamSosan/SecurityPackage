@@ -11,9 +11,26 @@ namespace SecurityLibrary
     {
         public string Analyse(string plainText, string cipherText)
         {
-            throw new NotImplementedException();
-        }
+            //throw new NotImplementedException();
+            char[] key = new char[26];
+            for (int index = 0; index < plainText.Length; index++)
+            {
+                int chars = ((plainText[index]) - 'a');
+                key[chars] = (cipherText[index]);
+            }
+            char ch = 'A';
+            for (int i = 0; i < 26; i++)
+            {
+                if (key[i] == '\0')
+                {
+                    while (key.Contains(ch)) { ch++; }
+                    key[i] = ch;
+                }
 
+            }
+            return new string(key).ToLower();
+        }
+        
         public string Decrypt(string cipherText, string key)
         {
             string plainText="" ;
