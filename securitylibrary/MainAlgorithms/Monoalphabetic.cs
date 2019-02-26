@@ -87,14 +87,13 @@ namespace SecurityLibrary
                 else
                     char_freq[ch] ++;
             }
-            char_freq.OrderByDescending(key => key.Value);
-            foreach (KeyValuePair<char, int> elemnt in char_freq)
+            foreach (KeyValuePair<char, int> elemnt in char_freq.OrderByDescending(key => key.Value))
             {
                 char_map.Add(elemnt.Key,char_analysis[index++]);
             }
             foreach (char ch in cipher)
             {
-                Plaintext+=char_map[ch];
+                Plaintext+= char_map[ch];
             }
             return Plaintext;
         }
