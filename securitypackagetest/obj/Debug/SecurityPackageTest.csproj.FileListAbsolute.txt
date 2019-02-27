@@ -19,3 +19,10 @@ F:\GoogleDriveSync\Security 2018-2019\Students\Lab 1\SecurityPackage\SecurityPac
 F:\GoogleDriveSync\Security 2018-2019\Students\Lab 1\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.csprojResolveAssemblyReference.cache
 F:\GoogleDriveSync\Security 2018-2019\Students\Lab 1\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.dll
 F:\GoogleDriveSync\Security 2018-2019\Students\Lab 1\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.pdb
+C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityPackageTest.dll
+C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityPackageTest.pdb
+C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityLibrary.dll
+C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityLibrary.pdb
+C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.csprojResolveAssemblyReference.cache
+C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.dll
+C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.pdb
