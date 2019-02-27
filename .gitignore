@@ -1,0 +1,8 @@
+*.suo
+securitylibrary/obj/Debug/SecurityLibrary.pdb
+securitylibrary/obj/Debug/SecurityLibrary.dll
+securitylibrary/obj/Debug/SecurityLibrary.csprojResolveAssemblyReference.cache
+*.txt
+securitylibrary/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.pdb
+*.dll
