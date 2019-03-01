@@ -26,3 +26,10 @@ C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\bin
 C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.csprojResolveAssemblyReference.cache
 C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.dll
 C:\Users\Hussam\Source\Repos\HussamSosan\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.pdb
+D:\education\matrial4\sim2\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityPackageTest.dll
+D:\education\matrial4\sim2\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityPackageTest.pdb
+D:\education\matrial4\sim2\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityLibrary.dll
+D:\education\matrial4\sim2\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityLibrary.pdb
+D:\education\matrial4\sim2\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.csprojResolveAssemblyReference.cache
+D:\education\matrial4\sim2\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.dll
+D:\education\matrial4\sim2\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.pdb

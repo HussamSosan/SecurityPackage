@@ -10,6 +10,7 @@ namespace SecurityLibrary
     {
         public string Decrypt(string cipherText, string key)
         {
+
             cipherText = cipherText.ToLower();
             key = key.ToLower();
             StringBuilder plainText = new StringBuilder();

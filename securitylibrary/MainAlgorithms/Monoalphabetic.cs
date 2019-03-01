@@ -26,7 +26,6 @@ namespace SecurityLibrary
                     while (key.Contains(ch)) { ch++; }
                     key[i] = ch;
                 }
-
             }
             return new string(key).ToLower();
         }
