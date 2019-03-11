@@ -15,12 +15,105 @@ namespace SecurityLibrary
 
         public string Decrypt(string cipherText, string key)
         {
-            throw new NotImplementedException();
+            cipherText = cipherText.ToLower();
+            char[] NewKey = new char[cipherText.Length];
+            char[] plainText = new char[cipherText.Length];
+            char[] chars = new char[cipherText.Length];
+
+            if (cipherText.Length > key.Length)
+            {
+                int i = 0;
+                for (int j = 0; i < cipherText.Length; ++j)
+                {
+                    if (j == key.Length)
+                        j = 0;
+
+                    chars[i] = key[j];
+                    i++;
+                }
+
+                NewKey = chars;
+            }
+
+
+            else
+            {
+                int i = 0;
+                for (int y = 0; i < cipherText.Length; ++y)
+                {
+                    chars[i] = key[y];
+                    i++;
+                }
+                NewKey = chars;
+            }
+
+
+            int a = Convert.ToInt32('a');
+            for (int i = 0; i < cipherText.Length; i++)
+            {
+                int c = Convert.ToInt32(cipherText[i]) - a;
+                int k = Convert.ToInt32(NewKey[i]) - a;
+                int p = (c - k);
+                p %= 26;
+                if (p < 0) p += 26;
+                p += a;
+
+                plainText[i] = Convert.ToChar(p);
+
+            }
+            string plain = new string(plainText);
+            return plain;
         }
 
         public string Encrypt(string plainText, string key)
         {
-            throw new NotImplementedException();
+            char[] NewKey = new char[plainText.Length];
+            char[] ciphertext = new char[plainText.Length];
+            char[] chars = new char[plainText.Length];
+
+            if (plainText.Length > key.Length)
+            {
+                int i = 0;
+                for (int j = 0; i < plainText.Length; ++j)
+                {
+                    if (j == key.Length)
+                        j = 0;
+
+                    chars[i] = key[j];
+                    i++;
+                }
+
+                NewKey = chars;
+            }
+
+
+            else
+            {
+                int i = 0;
+                for (int y = 0; i < plainText.Length; ++y)
+                {
+                    chars[i] = key[y];
+                    i++;
+                }
+                NewKey = chars;
+            }
+
+
+            int a = Convert.ToInt32('a');
+            for (int i = 0; i < plainText.Length; i++)
+            {
+                int p = Convert.ToInt32(plainText[i]) - a;
+                int k = Convert.ToInt32(NewKey[i]) - a;
+                int c = p + k;
+                c %= 26;
+                c += a;
+
+                ciphertext[i] = Convert.ToChar(c);
+
+            }
+            string cipher = new string(ciphertext);
+            return cipher.ToUpper();
+
         }
     }
 }
