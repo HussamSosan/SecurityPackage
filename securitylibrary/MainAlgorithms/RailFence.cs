@@ -24,13 +24,57 @@ namespace SecurityLibrary
 
         public string Decrypt(string cipherText, int key)
         {
-            string plainText;
+            cipherText = cipherText.ToLower();
+            int len = (int)Math.Ceiling(Convert.ToDecimal(cipherText.Length / (float)key));
+            string plainText = "";
+            char[,] temp = new char[key, len];
+            int index = 0;
+            for (int i = 0; i < key; i++)
+            {
+                for (int j = 0; j < len; j++)
+                {
+                    if (index == cipherText.Length) break;
+                    temp[i, j] = cipherText[index++];
+                }
+            }
+
+            for (int i = 0; i < len; i++)
+            {
+                for (int j = 0; j < key; j++)
+                {
+                    if (temp[j, i] == '\0') break;
+                    plainText += temp[j, i];
+                }
+            }
+            
             return plainText;
         }
 
         public string Encrypt(string plainText, int key)
         {
-            string cipherText;
+            plainText = plainText.ToUpper();
+            int len=(int)Math.Ceiling(Convert.ToDecimal(plainText.Length /(float)key));
+            string cipherText="";
+            char[,] temp =new char[key,len];
+            int index=0;
+            for (int i = 0; i < len; i++)
+            {
+                for(int j =0;j < key ;j++)
+                {
+                    if (index == plainText.Length) break;
+                    temp[j, i] = plainText[index++];
+                }
+            }
+
+            for (int i = 0; i < key; i++)
+            {
+                for (int j = 0; j < len; j++)
+                {
+                    if (temp[i, j] == '\0') break;
+                    cipherText += temp[i , j];
+                }
+            }
+
             return cipherText;
         }
     }
