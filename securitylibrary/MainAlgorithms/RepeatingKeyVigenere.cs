@@ -10,7 +10,49 @@ namespace SecurityLibrary
     {
         public string Analyse(string plainText, string cipherText)
         {
-            throw new NotImplementedException();
+            StringBuilder repeatedkey = new StringBuilder();
+            cipherText = cipherText.ToLower();
+            int a = Convert.ToInt32('a');
+            for (int i = 0; i < cipherText.Length; i++)
+            {
+                int c = Convert.ToInt32(cipherText[i]) - a;
+                int p = Convert.ToInt32(plainText[i]) - a;
+                int k = (c - p);
+                k %= 26;
+                if (k < 0) k += 26;
+                k += a;
+
+                repeatedkey.Append(Convert.ToChar(k));
+
+            }
+
+            int keyEnd = -1;
+            string firstPart;
+            string secondPart;
+            for (int i = 0; i < repeatedkey.Length; i++)
+            {
+                if (i * 2 + 2 < repeatedkey.Length)
+                {
+                    firstPart = repeatedkey.ToString().Substring(0, i + 1);
+                    secondPart = repeatedkey.ToString().Substring(i + 1, i + 1);
+                    if (firstPart.Equals(secondPart))
+                    {
+                        keyEnd = i;
+                    }
+                }
+                else break;
+            }
+
+            string key;
+            if (keyEnd < 0)
+            {
+                key = repeatedkey.ToString();
+            }
+            else
+            {
+                key = repeatedkey.ToString().Substring(0, keyEnd + 1);
+            }
+            return key;
         }
 
         public string Decrypt(string cipherText, string key)
