@@ -12,13 +12,13 @@ namespace SecurityLibrary.DES
     /// </summary>
     public class DES : CryptographicTechnique
     {
-        public static string[] toBin =
+        string[] toBin =
         {
             "0000","0001","0010","0011","0100","0101","0110","0111",
             "1000","1001","1010","1011","1100","1101","1110","1111"
         };
-        public static int[] LeftShifts = { 1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1 };
-        public static int[] PC1 =
+        int[] LeftShifts = { 1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1 };
+        int[] PC1 =
         {
             57, 49, 41, 33, 25, 17, 9,
             1, 58, 50, 42, 34, 26, 18,
@@ -29,7 +29,7 @@ namespace SecurityLibrary.DES
             14, 6, 61, 53, 45, 37, 29,
             21, 13, 5, 28, 20, 12, 4
         };
-        public static int[] PC2 =
+        int[] PC2 =
       {
             14, 17, 11, 24, 1, 5,
             3, 28, 15, 6, 21, 10,
@@ -40,7 +40,7 @@ namespace SecurityLibrary.DES
             44, 49, 39, 56, 34, 53,
             46, 42, 50, 36, 29, 32
         };
-        public static int[] IP =
+        int[] IP =
         {
             58, 50, 42, 34, 26, 18, 10, 2,
             60, 52, 44, 36, 28, 20, 12, 4,
@@ -51,7 +51,7 @@ namespace SecurityLibrary.DES
             61, 53, 45, 37, 29, 21, 13, 5,
             63, 55, 47, 39, 31, 23, 15, 7
         };
-        public static int[] ExpansionMat =
+        int[] ExpansionMat =
         {
             32, 1, 2, 3, 4, 5,
             4, 5, 6, 7, 8, 9,
@@ -62,7 +62,7 @@ namespace SecurityLibrary.DES
             24, 25, 26, 27, 28, 29,
             28, 29, 30, 31, 32, 1
         };
-        public static int[] P =
+        int[] P =
         {
             16, 7, 20, 21,
             29, 12, 28, 17,
@@ -73,7 +73,7 @@ namespace SecurityLibrary.DES
             19, 13, 30, 6,
             22, 11, 4, 25
         };
-       public static int[] IPinverse =
+       int[] IPinverse =
        {
             40, 8, 48, 16, 56, 24, 64, 32,
             39, 7, 47, 15, 55, 23, 63, 31,
@@ -84,7 +84,7 @@ namespace SecurityLibrary.DES
             34, 2, 42, 10, 50, 18, 58, 26,
             33, 1, 41, 9, 49, 17, 57, 25
         };
-        public static int[,] SBoxes =
+        int[,] SBoxes =
         {
             {
                 14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7,
@@ -137,7 +137,7 @@ namespace SecurityLibrary.DES
         };
 
 
-        public static char XOR(char x,char y)
+        char XOR(char x,char y)
         { 
             if((x == '0' && y == '1') || (x == '1' && y == '0'))
             {
@@ -149,7 +149,7 @@ namespace SecurityLibrary.DES
             }
         }
 
-        public static int toInt2(string input)
+        int toInt2(string input)
         {
             if(input == "00")
             {
@@ -169,7 +169,7 @@ namespace SecurityLibrary.DES
             }
         }
 
-        public static int toInt4(string input)
+        int toInt4(string input)
         {
             if (input == "0000")
             {
@@ -238,7 +238,7 @@ namespace SecurityLibrary.DES
 
         }
 
-        public static char toHEX(string input)
+        char toHEX(string input)
         {
             if (input == "0000")
             {
