@@ -309,7 +309,153 @@ namespace SecurityLibrary.DES
 
         public override string Decrypt(string cipherText, string key)
         {
-            throw new NotImplementedException();
+            string plainText = String.Empty;
+           
+
+            //convert key to string of 1's and 0's
+            StringBuilder binaryKey = new StringBuilder();
+            for (int i = 2; i < key.Length; i++)
+            {
+                binaryKey.Append(toBin[int.Parse(key[i].ToString(), NumberStyles.HexNumber, CultureInfo.InvariantCulture)]);
+            }
+
+            // apply PC1
+            StringBuilder PC1key = new StringBuilder();
+            for (int i = 0; i < PC1.Length; i++)
+            {
+                PC1key.Append(binaryKey[PC1[i] - 1]);
+            }
+
+            //calculate Cn and Dn 
+            string[] C = new string[17];
+            string[] D = new string[17];
+
+            C[0] = PC1key.ToString().Substring(0, 28);
+            D[0] = PC1key.ToString().Substring(28, 28);
+
+            string shifted_C = C[0];
+            string shifted_D = D[0];
+            char rightMost;
+            for (int i = 0; i < 16; i++)
+            {
+                for (int j = 0; j < LeftShifts[i]; j++)
+                {
+                    rightMost = shifted_C[0];
+                    shifted_C = shifted_C.Remove(0, 1);
+                    shifted_C += rightMost;
+
+                    rightMost = shifted_D[0];
+                    shifted_D = shifted_D.Remove(0, 1);
+                    shifted_D += rightMost;
+                }
+                C[i + 1] = shifted_C;
+                D[i + 1] = shifted_D;
+            }
+
+            //calculate Kn
+            string[] K = new string[16];
+            for (int i = 0; i < K.Length; i++)
+            {
+                K[i] = C[i + 1] + D[i + 1];
+            }
+
+            //apply PC2
+            StringBuilder[] roundKey = new StringBuilder[16];
+            for (int i = 0; i < K.Length; i++)
+            {
+                roundKey[i] = new StringBuilder();
+                for (int j = 0; j < PC2.Length; j++)
+                {
+                    roundKey[i].Append(K[i][PC2[j] - 1]);
+                }
+            }
+
+            //start decrypting cipher text
+
+            //conver palint text to array of 0's and 1's
+            StringBuilder binaryCipherText = new StringBuilder();
+            for (int i = 2; i < key.Length; i++)
+            {
+                binaryCipherText.Append(toBin[int.Parse(cipherText[i].ToString(), NumberStyles.HexNumber, CultureInfo.InvariantCulture)]);
+            }
+
+            //apply initial permutation
+            StringBuilder initialPermutation = new StringBuilder();
+            for (int i = 0; i < IP.Length; i++)
+            {
+                initialPermutation.Append(binaryCipherText[IP[i] - 1]);
+            }
+
+            //calculate Ln and Rn
+            string[] L = new string[17];
+            string[] R = new string[17];
+
+            L[0] = initialPermutation.ToString().Substring(0, 32);
+            R[0] = initialPermutation.ToString().Substring(32, 32);
+
+            StringBuilder expandedR;
+            StringBuilder xorOutput;
+            StringBuilder sboxOutput;
+            StringBuilder permutationOutput;
+            string Bn;
+            int row;
+            int column;
+            
+            //repeat process for 16 round
+            for (int i = 1; i < 17; i++)
+            {
+                L[i] = R[i - 1];
+                expandedR = new StringBuilder();
+                xorOutput = new StringBuilder();
+                sboxOutput = new StringBuilder();
+                permutationOutput = new StringBuilder();
+                //expand R
+                for (int j = 0; j < ExpansionMat.Length; j++)
+                {
+                    expandedR.Append(R[i - 1][ExpansionMat[j] - 1]);
+                }
+                // E(Ri) xor Ki
+                for (int j = 0; j < expandedR.Length; j++)
+                {
+                    xorOutput.Append(XOR(expandedR[j], roundKey[15-(i - 1)][j]));
+                }
+                // apply sbox
+                for (int j = 0; j < 8; j++)
+                {
+                    Bn = xorOutput.ToString().Substring(6 * j, 6);
+                    row = toInt2(Bn[0] + string.Empty + Bn[5]);
+                    column = toInt4(Bn.Substring(1, 4));
+                    sboxOutput.Append(toBin[SBoxes[j, (row * 16) + column]]);
+                }
+                //apply permutation
+                for (int j = 0; j < P.Length; j++)
+                {
+                    permutationOutput.Append(sboxOutput[P[j] - 1]);
+                }
+                //calculate Ri
+                xorOutput = new StringBuilder();
+                for (int j = 0; j < permutationOutput.Length; j++)
+                {
+                    xorOutput.Append(XOR(L[i - 1][j], permutationOutput[j]));
+                }
+                R[i] = xorOutput.ToString();
+            }
+
+            string R16L16 = R[16] + L[16];
+            StringBuilder binaryPlainText = new StringBuilder();
+            //apply p^-1
+            for (int i = 0; i < IPinverse.Length; i++)
+            {
+                binaryPlainText.Append(R16L16[IPinverse[i] - 1]);
+            }
+
+            //conver output to HEX
+            plainText += "0x";
+            for (int i = 0; i < 16; i++)
+            {
+                plainText += toHEX(binaryPlainText.ToString().Substring(4 * i, 4));
+            }
+            return plainText;
         }
 
         public override string Encrypt(string plainText, string key)
