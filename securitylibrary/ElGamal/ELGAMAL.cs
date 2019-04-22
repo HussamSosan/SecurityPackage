@@ -78,9 +78,38 @@ namespace SecurityLibrary.ElGamal
         public int Decrypt(int c1, int c2, int x, int q)
         {
             int K = kiki(q, c1, x);
-            var kinverse = 0 ;
-            int M = (c2 * kinverse) % q;
+            var extented_res = koko(q, K);
+            c2 = c2 % q;
+            int M = (c2 * extented_res)%q;
             return M;
         }
+
+
+        public static int koko(int mod, int number)
+        {
+            var i = mod;
+            var v = 0;
+            var w = 1;
+            int z = 0;
+            for (int j = 0; number > 0; j++)
+            {
+                var t = i / number;
+                var x = number;
+                number = i % x;
+                i = x;
+                x = w;
+                w = v - t * x;
+                v = x;
+            }
+            v %= mod;
+            if (v < 0)
+            {
+                v = (v + mod) % mod;
+            }
+            else
+                z++;
+            return v;
+        }
+
     }
 }
