@@ -22,3 +22,8 @@ C:\Users\life\Documents\GitHub\SecurityPackage\SecurityLibrary\bin\Debug\Securit
 C:\Users\life\Documents\GitHub\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.dll
 C:\Users\life\Documents\GitHub\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.pdb
 C:\Users\life\Documents\GitHub\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Hussam\Documents\SecurityPackage\SecurityLibrary\bin\Debug\SecurityLibrary.dll
+C:\Users\Hussam\Documents\SecurityPackage\SecurityLibrary\bin\Debug\SecurityLibrary.pdb
+C:\Users\Hussam\Documents\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Hussam\Documents\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.dll
+C:\Users\Hussam\Documents\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.pdb

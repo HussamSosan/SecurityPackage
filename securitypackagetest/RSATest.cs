@@ -4,7 +4,7 @@ using SecurityLibrary.RSA;
 
 namespace SecurityPackageTest
 {
-    [Ignore]
+    
     [TestClass]
     public class RSATest
     {

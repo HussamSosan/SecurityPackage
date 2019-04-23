@@ -80,36 +80,45 @@ namespace SecurityLibrary.ElGamal
             int K = kiki(q, c1, x);
             var extented_res = koko(q, K);
             c2 = c2 % q;
-            int M = (c2 * extented_res)%q;
+            int M = (c2 * extented_res) % q;
             return M;
         }
 
 
         public static int koko(int mod, int number)
         {
-            var i = mod;
-            var v = 0;
+            var a = mod;
+            var res = 0;
             var w = 1;
             int z = 0;
+            var temp = 0;
             for (int j = 0; number > 0; j++)
             {
-                var t = i / number;
+                var temp1 = a / number;
                 var x = number;
-                number = i % x;
-                i = x;
-                x = w;
-                w = v - t * x;
-                v = x;
+                number = a % x;
+                temp = x;
+                a = temp;
+                temp = w;
+                x = temp;
+                temp = temp1 * x;
+                w = res - temp;
+                temp = x;
+                res = temp;
             }
-            v %= mod;
-            if (v < 0)
+            temp = res % mod;
+            res = temp;
+            if (res >= 0)
             {
-                v = (v + mod) % mod;
+                z++;
             }
             else
-                z++;
-            return v;
+                temp = res + mod;
+            res = temp % mod;
+            return res;
         }
+
+
 
     }
 }

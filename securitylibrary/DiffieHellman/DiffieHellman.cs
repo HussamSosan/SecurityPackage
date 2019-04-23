@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SecurityLibrary.DiffieHellman
 {
-    public class DiffieHellman 
+    public class DiffieHellman
     {
         public List<int> GetKeys(int q, int alpha, int xa, int xb)
         {
