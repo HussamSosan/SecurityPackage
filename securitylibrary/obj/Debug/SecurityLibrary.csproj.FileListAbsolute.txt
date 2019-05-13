@@ -27,3 +27,8 @@ C:\Users\Hussam\Documents\SecurityPackage\SecurityLibrary\bin\Debug\SecurityLibr
 C:\Users\Hussam\Documents\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.csprojResolveAssemblyReference.cache
 C:\Users\Hussam\Documents\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.dll
 C:\Users\Hussam\Documents\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.pdb
+C:\Users\life\Desktop\SecurityPackage\SecurityLibrary\bin\Debug\SecurityLibrary.dll
+C:\Users\life\Desktop\SecurityPackage\SecurityLibrary\bin\Debug\SecurityLibrary.pdb
+C:\Users\life\Desktop\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.csprojResolveAssemblyReference.cache
+C:\Users\life\Desktop\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.dll
+C:\Users\life\Desktop\SecurityPackage\SecurityLibrary\obj\Debug\SecurityLibrary.pdb

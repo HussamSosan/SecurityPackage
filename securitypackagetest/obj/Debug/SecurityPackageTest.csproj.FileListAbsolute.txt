@@ -47,3 +47,10 @@ C:\Users\Hussam\Documents\SecurityPackage\SecurityPackageTest\bin\Debug\Security
 C:\Users\Hussam\Documents\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.csprojResolveAssemblyReference.cache
 C:\Users\Hussam\Documents\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.dll
 C:\Users\Hussam\Documents\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.pdb
+C:\Users\life\Desktop\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityPackageTest.dll
+C:\Users\life\Desktop\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityPackageTest.pdb
+C:\Users\life\Desktop\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityLibrary.dll
+C:\Users\life\Desktop\SecurityPackage\SecurityPackageTest\bin\Debug\SecurityLibrary.pdb
+C:\Users\life\Desktop\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.csprojResolveAssemblyReference.cache
+C:\Users\life\Desktop\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.dll
+C:\Users\life\Desktop\SecurityPackage\SecurityPackageTest\obj\Debug\SecurityPackageTest.pdb

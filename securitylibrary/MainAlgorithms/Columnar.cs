@@ -67,13 +67,13 @@ namespace SecurityLibrary
 
             int dev;
 
-            dev = CLen / keyLen;
+            dev = CLen / keyLen;// # of rows in 2d mat
 
             char[,] pl = new char[dev, keyLen];
 
 
 
-            for (int i = 0; i < keyLen; i++)
+            for (int i = 0; i < keyLen; i++)//arrange CT as 2d matrix to be prepared for final stage of decryption 
             {
                 int counter2 = 0;
                 int startindex = ((key[i] - 1) * dev);
@@ -88,6 +88,7 @@ namespace SecurityLibrary
                     startindex++;
                 }
             }
+            // final stage
             string result = "";
             char[] res = new char[CLen];
             for (int i = 0; i < dev; i++)
@@ -113,10 +114,10 @@ namespace SecurityLibrary
 
             if (ptLen % keyLen == 0)
             {
-                dev = ptLen / keyLen;
-                pt = new char[dev, keyLen];
+                dev = ptLen / keyLen;   // # of rows 
+                pt = new char[dev, keyLen]; // array 2D 
                 int counter = 0;
-                for (int i = 0; i < dev; i++)
+                for (int i = 0; i < dev; i++)// nested loop to fill p-t into 2d array
                 {
                     int j;
                     for (j = 0; j < keyLen; j++)
@@ -131,7 +132,7 @@ namespace SecurityLibrary
 
             else
             {
-                while (ptLen % keyLen != 0)
+                while (ptLen % keyLen != 0)//make p-t length even number and add *
                 {
                     ptLen++;
                     count++;
@@ -142,7 +143,7 @@ namespace SecurityLibrary
 
                 pt = new char[dev, keyLen];
                 int counter = 0;
-                for (int i = 0; i < dev; i++)
+                for (int i = 0; i < dev; i++)// fill 2d array with pt after make it's len enven number
                 {
                     int j;
                     for (j = 0; j < keyLen; j++)
@@ -161,9 +162,9 @@ namespace SecurityLibrary
 
             for (int i = 0; i < keyLen; i++)
             {
-                int counter2 = 0;
-                int startindex = ((key[i] - 1) * dev);
-                for (int j = 0; j < dev; j++)
+                int counter2 = 0; // col index
+                int startindex = ((key[i] - 1) * dev); //start index in cipher array to store result 
+                for (int j = 0; j < dev; j++)// loop to save the c-t col wise
                 {
                     if (startindex == pt.Length)
                         break;
@@ -176,6 +177,7 @@ namespace SecurityLibrary
 
             string res = new string(ciphertext);
             StringBuilder myRes = new StringBuilder();
+            //to return result without **
             foreach (char item in res)
             {
                 if (item != '*')
